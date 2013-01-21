@@ -118,8 +118,8 @@ if (exp == expreq)
     cout << "\033[01;35m[2] Character" << endl;
     cout << "\033[01;35m[3] Upgrade Weapon" << endl;
     cout << "\033[01;35m[4] Buy HP Potion" << endl;
-    cout << "\033[01;35m[5] Quit" << endl;
-    cout << "\033[01;35m[6] Update" << endl;
+    cout << "\033[01;35m[5] Update" << endl;
+    cout << "\033[01;35m[6] Quit" << endl;
     cout << "\033[01;35m>";
     cin >> inputmain;
 	switch(inputmain){
@@ -136,11 +136,11 @@ if (exp == expreq)
 			potionshop();
 			break;
 		case 5:
-			cout << "\033[01;36mThanks for playing!" << endl;
-			return;
-                case 6:
                         update();
                         break;
+                case 6:
+			cout << "\033[01;36mThanks for playing!" << endl;
+			return;
 		default:
 			cout << "\033[01;31mInvalid input, please retry." << endl << endl;
 			mainScreen();
