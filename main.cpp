@@ -206,9 +206,9 @@ void enemyOne()
 int main()
 {
 
-cout << "\033[01;35m===================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v1.0" << endl;
-cout << "\033[01;35m===================================" << endl;
+cout << "\033[01;35m=====================================" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v1.5.2" << endl;
+cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
 
