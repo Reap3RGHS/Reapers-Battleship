@@ -1,6 +1,7 @@
 #include<iostream>
 #include<ctime>
 #include<cstdlib>
+#include<stdio.h>
 
 using namespace std;
 
@@ -9,6 +10,7 @@ void mainScreen();
 void enemyOne();
 void upgradeweap();
 void potionshop();
+void update();
 
 int inputmain = 0;
 int input1 = 0;
@@ -37,6 +39,16 @@ string weapon = "Anchemacha";
 string armor = "Greek Bronze Shield";
 string enemy1 = "Trojan";
 
+void update()
+{
+    FILE* file = popen("git pull", "r");
+// use fscanf to read:
+char buffer[100];
+fscanf(file, "%s", buffer);
+pclose(file);
+mainScreen();
+}
+
 void statSheet()
 {
     cout << "\033[22;34mName: " << "\033[01;37m" << playername << endl;
@@ -57,19 +69,17 @@ void upgradeweap()
     cin >> weaponupgrade;
     if (coins < weaponlevelreq){
             cout << "\033[01;31mYou have no coins available for this upgrade!" << endl << endl;
-            mainScreen();
-        }
+            
+    }
     else if (weaponupgrade == "yes"){
         coins -= 10;
         atk += 5;
         weaponlevel ++;
         weaponlevelreq += 10;
         cout << "\033[01;32mCongratulations! Your weapon is now level " << weaponlevel << endl << endl;
-        mainScreen();
+        
     }
-    else if (weaponupgrade == "no"){
-        mainScreen();
-    }
+    mainScreen();
 }
 void potionshop()
 {
@@ -79,19 +89,16 @@ void potionshop()
     if (coins < potioncost)
     {
         cout << "\033[01;31mYou have no coins available for this upgrade!" << endl << endl;
-        mainScreen();
+       
     }
     else if (potion == "yes")
     {
         coins -= 5;
         hp += 25;
         cout << "\033[01;32mCongratulations! Your HP now is " << hp << "." << endl << endl;
-        mainScreen();
+        
     }
-    else if (potion == "no")
-    {
-        mainScreen();
-    }
+    mainScreen();
 }
 
 void mainScreen()
@@ -112,34 +119,33 @@ if (exp == expreq)
     cout << "\033[01;35m[3] Upgrade Weapon" << endl;
     cout << "\033[01;35m[4] Buy HP Potion" << endl;
     cout << "\033[01;35m[5] Quit" << endl;
+    cout << "\033[01;35m[6] Update" << endl;
     cout << "\033[01;35m>";
     cin >> inputmain;
-    if (inputmain == 1)
-    {
-    enemyOne();
-    }
-    else if (inputmain == 2)
-    {
-    statSheet();
-    }
-    else if (inputmain == 3)
-    {
-        upgradeweap();
-    }
-    else if (inputmain == 4)
-    {
-        potionshop();
-    }
-    else if (inputmain == 5)
-    {
-    cout << "\033[01;36mThanks for playing!" << endl;
-    return;
-    }
-    else
-    {
-    cout << "\033[01;31mInvalid input, please retry." << endl << endl;
-    mainScreen();
-    }
+	switch(inputmain){
+		case 1:
+			enemyOne();
+			break;
+		case 2:
+			statSheet();
+			break;
+		case 3:
+			upgradeweap();
+			break;
+		case 4:
+			potionshop();
+			break;
+		case 5:
+			cout << "\033[01;36mThanks for playing!" << endl;
+			return;
+                case 6:
+                        update();
+                        break;
+		default:
+			cout << "\033[01;31mInvalid input, please retry." << endl << endl;
+			mainScreen();
+			break;
+	}
 }
 
 void enemyOne()
