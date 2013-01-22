@@ -118,7 +118,7 @@ if (exp == expreq)
     exp = 0;
     expreq += 20;
     hp = 150;
-    enemy1atk += 5;
+    enemy1atk += 2;
     }
 
     cout << "\033[01;35m[1] Battle" << endl;
@@ -218,7 +218,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v1.6.2" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v1.6.5" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
