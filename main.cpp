@@ -23,7 +23,7 @@ int atkboost;
 int enemy1hp = 200;
 int enemy1maxhp = 200;
 int enemy1exp = 20;
-int enemy1atk = 2;
+int enemy1atk = 1;
 int enemy1atkboost;
 int expreq = 20;
 int playerlevel = 1;
@@ -64,6 +64,13 @@ void statSheet()
 
 void upgradeweap()
 {
+    if (weaponlevel == 9)
+    {
+        cout << "\033[01;32mYou have reached level " << weaponlevel << ", your weapon is now master." << endl << endl;
+        mainScreen();
+    }
+    
+    
     cout << "\033[01;33mAre you sure you want to spent " << weaponlevelreq << " coins for weapon upgrade? [yes/no] " << endl;
     cout << "\033[01;33m>";
     cin >> weaponupgrade;
@@ -150,6 +157,10 @@ if (exp == expreq)
 
 void enemyOne()
 {
+    if (playerlevel == 9) {
+    cout << "\033[01;32mCongratulations! You have FINISHED the game!!!!" << endl << endl;
+    return;
+}
     cout << "\033[01;32m" << enemy1 << " \033[01;32m<" << enemy1hp << " / " << enemy1maxhp << ">" << " is ready for battle!" << endl;
     cout << "---" << endl;
     while (enemy1hp > 0)
@@ -196,7 +207,7 @@ void enemyOne()
     cout << "\033[01;32mYou have slain the " << enemy1 << "!" << endl << endl;
             exp += enemy1exp;
             wincoins = coins += (rand () % 28);
-            enemy1hp = 200;
+            enemy1hp = 1;
             mainScreen();
 }
 
@@ -207,7 +218,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v1.5.2" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v1.6.0" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
