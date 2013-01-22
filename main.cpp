@@ -11,6 +11,7 @@ void enemyOne();
 void upgradeweap();
 void potionshop();
 void update();
+void shop();
 
 int inputmain = 0;
 int input1 = 0;
@@ -27,17 +28,60 @@ int enemy1atk = 1;
 int enemy1atkboost;
 int expreq = 20;
 int playerlevel = 1;
-int coins = 10;
+int coins = 80;
 int wincoins;
 int weaponlevel = 1;
 int weaponlevelreq = 10;
 int potioncost = 5;
+int weaponselection = 0;
+int daggerprice = 30;
+int swordprice = 40;
 string potion;
 string weaponupgrade;
 string playername;
 string weapon = "Anchemacha";
 string armor = "Greek Bronze Shield";
 string enemy1 = "Trojan";
+
+void shop()
+{
+    cout << "Welcome to my Shop!" << endl;
+    cout << "Select the weapon that you like: " << endl << endl;
+    
+    cout << "[1] Spartan Dagger < 30 coins >" << endl;
+    cout << "[2] Cutter < 40 coins >" << endl;
+    cout << ">";
+    cin >> weaponselection;
+    
+    if ( coins < daggerprice && coins < swordprice)
+    {
+        cout << "\033[01;31mYou have no coins available to buy this item!" << endl << endl;
+        
+    }
+    
+    else if (weaponselection == 1)
+    {
+        weapon = "Spartan Dagger";
+        coins -= 30;
+        atk += 5;
+        weaponlevel = 1;
+        weaponlevelreq = 10;
+        
+        cout << "\033[01;32mCongratulations! You bought \"Dagger\"!!! " << endl << endl;
+    }
+    
+    else if (weaponselection == 2)
+    {
+        weapon = "Cutter";
+        coins -= 40;
+        atk += 10;
+        weaponlevel = 1;
+        weaponlevelreq = 10;
+        
+        cout << "\033[01;32mCongratulations! You bought \"Sword\"!!! " << endl << endl;
+    }
+    mainScreen();
+}
 
 void update()
 {
@@ -46,6 +90,7 @@ void update()
 char buffer[100];
 fscanf(file, "%s", buffer);
 pclose(file);
+
 mainScreen();
 }
 
@@ -133,8 +178,9 @@ if (exp == expreq)
     cout << "\033[01;35m[2] Character" << endl;
     cout << "\033[01;35m[3] Upgrade Weapon" << endl;
     cout << "\033[01;35m[4] Buy HP Potion" << endl;
-    cout << "\033[01;35m[5] Update" << endl;
-    cout << "\033[01;35m[6] Quit" << endl;
+    cout << "\033[01;35m[5] Weapon Shop" << endl;
+    cout << "\033[01;35m[6] Update" << endl;
+    cout << "\033[01;35m[7] Quit" << endl;
     cout << "\033[01;35m>";
     cin >> inputmain;
 	switch(inputmain){
@@ -151,9 +197,12 @@ if (exp == expreq)
 			potionshop();
 			break;
 		case 5:
-                        update();
+                        shop();
                         break;
                 case 6:
+                        update();
+			break;
+                case 7:
 			cout << "\033[01;36mThanks for playing!" << endl;
 			return;
 		default:
@@ -210,7 +259,7 @@ void enemyOne()
         {
         cout << "\033[01;31mInvalid input, please retry." << endl << endl;
         }
-
+    
     }
     cout << "\033[01;32mYou have slain the " << enemy1 << "!" << endl << endl;
             exp += enemy1exp;
@@ -226,7 +275,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v2.0.1" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v3.0.0" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);

@@ -3,6 +3,15 @@ Site :
 [!] http://reap3rghs.github.com/Reapers-Battleship/
 
 
+Version 3.0.0 : 
+
+[+] Added "Weapon Shop".
+
+[+] Added two new Weapons in the game.
+
+[-] Have to fix the bug in the game closing after the player run away from a battle.
+
+
 Version 2.0.1 : 
 
 [+] When your HP is 149 and you buy a HP Potion is being 150 and not 154. *BUG FIX*
