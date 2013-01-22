@@ -106,6 +106,10 @@ void potionshop()
     {
         coins -= 5;
         hp += 5;
+    if (hp >= maxhp)
+        {
+            hp = 150;
+        }
         cout << "\033[01;32mCongratulations! Your HP now is " << hp << "." << endl << endl;
         
     }
@@ -222,7 +226,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v1.7.0" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v2.0.1" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);

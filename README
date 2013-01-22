@@ -3,6 +3,11 @@ Site :
 [!] http://reap3rghs.github.com/Reapers-Battleship/
 
 
+Version 2.0.1 : 
+
+[+] When your HP is 149 and you buy a HP Potion is being 150 and not 154. *BUG FIX*
+
+
 Version 1.7.0 : 
 
 [+] You cannot buy HP Potions if your HP is 150.*
