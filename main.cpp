@@ -93,7 +93,11 @@ void potionshop()
     cout << "\033[01;33mAre you sure you want to buy HP Potions for 5 coins? [yes/no]" << endl;
     cout << "\033[01;33m>";
     cin >> potion;
-    if (coins < potioncost)
+    if (hp == maxhp) 
+    {
+        cout << "\033[01;31mYour HP is full! You can't increase it more." << endl << endl;
+    }
+    else if (coins < potioncost)
     {
         cout << "\033[01;31mYou have no coins available for this upgrade!" << endl << endl;
        
@@ -101,7 +105,7 @@ void potionshop()
     else if (potion == "yes")
     {
         coins -= 5;
-        hp += 25;
+        hp += 5;
         cout << "\033[01;32mCongratulations! Your HP now is " << hp << "." << endl << endl;
         
     }
@@ -218,7 +222,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v1.6.5" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v1.7.0" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);

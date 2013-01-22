@@ -1,3 +1,10 @@
+Version 1.7.0 : 
+
+[+] You cannot buy HP Potions if your HP is 150.*
+
+*We have to fix if you have HP 149 and buy a HP Potion your HP being 154. (The MAX HP is 150)
+
+
 Version 1.6.5 : 
 
 [+] Lowered the enemy atack a little.
