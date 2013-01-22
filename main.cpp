@@ -28,7 +28,7 @@ int enemy1atk = 1;
 int enemy1atkboost;
 int expreq = 20;
 int playerlevel = 1;
-int coins = 80;
+int coins = 10;
 int wincoins;
 int weaponlevel = 1;
 int weaponlevelreq = 10;
@@ -275,7 +275,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v3.0.0" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v2.0.1" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
