@@ -254,6 +254,7 @@ void enemyOne()
         {
         cout << "\033[01;31m>You have ran away from the " << enemy1 << "." << endl << endl;
         mainScreen();
+        return;
         }
         else
         {
@@ -275,7 +276,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v3.0.0" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v3.1.0" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);

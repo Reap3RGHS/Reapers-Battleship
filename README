@@ -3,13 +3,18 @@ Site :
 [!] http://reap3rghs.github.com/Reapers-Battleship/
 
 
+Version 3.1.0:
+
+[+] Fixed the exit bug after the players "Run Away" *BUG FIX*
+
+
 Version 3.0.0 : 
 
 [+] Added "Weapon Shop".
 
 [+] Added two new Weapons in the game.
 
-[-] Have to fix the bug in the game closing after the player run away from a battle.
+[-] Have to fix the bug in the game closing after the player run away from a battle. *BUG*
 
 
 Version 2.0.1 : 
