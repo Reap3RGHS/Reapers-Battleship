@@ -207,7 +207,7 @@ void enemyOne()
     cout << "\033[01;32mYou have slain the " << enemy1 << "!" << endl << endl;
             exp += enemy1exp;
             wincoins = coins += (rand () % 28);
-            enemy1hp = 1;
+            enemy1hp = 200;
             mainScreen();
 }
 
