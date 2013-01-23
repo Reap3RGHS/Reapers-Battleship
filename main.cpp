@@ -91,7 +91,7 @@ void shop()
     else if (weaponselection == 3)
     {
         mainScreen();
-        
+        return;
     }
     mainScreen();
 }
