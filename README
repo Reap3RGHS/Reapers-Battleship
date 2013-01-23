@@ -3,6 +3,13 @@ Site :
 [!] http://reap3rghs.github.com/Reapers-Battleship/
 
 
+Version 3.1.3: 
+
+[+] Fixed error messages at Potionshop, Weaponshop and Weaponupgrade systems. *BUG FIX*
+
+[+] Added a third choice at Weapon Shop. ([3]Back)
+
+
 Version 3.1.2: 
 
 [+] Fixed the bug at the weapon upgrade system. (For every upgrade level it takes only 10 coins) *BUG FIX*

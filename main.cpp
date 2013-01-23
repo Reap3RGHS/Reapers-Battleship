@@ -50,19 +50,21 @@ void shop()
     
     cout << "[1] Spartan Dagger < 30 coins >" << endl;
     cout << "[2] Cutter < 40 coins >" << endl;
+    cout << "[3] Back" << endl;
     cout << ">";
     cin >> weaponselection;
     
-    if ( coins < daggerprice && coins < swordprice)
+    
+    if (weaponselection == 1)
+    {
+        if ( coins < daggerprice )
     {
         cout << "\033[01;31mYou have no coins available to buy this item!" << endl << endl;
-        
+        mainScreen();
+        return;
     }
-    
-    else if (weaponselection == 1)
-    {
         weapon = "Spartan Dagger";
-        coins -= 30;
+        coins -= daggerprice;
         atk += 5;
         weaponlevel = 1;
         weaponlevelreq = 10;
@@ -72,13 +74,24 @@ void shop()
     
     else if (weaponselection == 2)
     {
+        if ( coins < swordprice )
+    {
+        cout << "\033[01;31mYou have no coins available to buy this item!" << endl << endl;
+        mainScreen();
+        return;
+    }
         weapon = "Cutter";
-        coins -= 40;
+        coins -= swordprice;
         atk += 10;
         weaponlevel = 1;
         weaponlevelreq = 10;
         
         cout << "\033[01;32mCongratulations! You bought \"Cutter\"!!! " << endl << endl;
+    }
+    else if (weaponselection == 3)
+    {
+        mainScreen();
+        
     }
     mainScreen();
 }
@@ -119,11 +132,12 @@ void upgradeweap()
     cout << "\033[01;33mAre you sure you want to spent " << weaponlevelreq << " coins for weapon upgrade? [yes/no] " << endl;
     cout << "\033[01;33m>";
     cin >> weaponupgrade;
-    if (coins < weaponlevelreq){
+    if (weaponupgrade == "yes"){
+            if (coins < weaponlevelreq){
             cout << "\033[01;31mYou have no coins available for this upgrade!" << endl << endl;
-            
+            mainScreen();
+            return;
     }
-    else if (weaponupgrade == "yes"){
         atk += 5;
         weaponlevel ++;
         coins -= weaponlevelreq;
@@ -138,17 +152,19 @@ void potionshop()
     cout << "\033[01;33mAre you sure you want to buy HP Potions for 5 coins? [yes/no]" << endl;
     cout << "\033[01;33m>";
     cin >> potion;
-    if (hp == maxhp) 
+    
+    if (potion == "yes")
     {
-        cout << "\033[01;31mYour HP is full! You can't increase it more." << endl << endl;
-    }
-    else if (coins < potioncost)
+        if (coins < potioncost)
     {
         cout << "\033[01;31mYou have no coins available for this upgrade!" << endl << endl;
-       
+        mainScreen();
     }
-    else if (potion == "yes")
+        if (hp == maxhp) 
     {
+        cout << "\033[01;31mYour HP is full! You can't increase it more." << endl << endl;
+        mainScreen();
+    }
         coins -= 5;
         hp += 5;
     if (hp >= maxhp)
@@ -276,7 +292,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v3.1.2" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v3.1.3" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
