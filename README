@@ -3,6 +3,13 @@ Site :
 [!] http://reap3rghs.github.com/Reapers-Battleship/
 
 
+Version 3.1.1: 
+
+[+] After the update the game closes.
+
+[+] Fixed the defence issue. (Now the defence affects the enemy atack) *BUG FIX*
+
+
 Version 3.1.0:
 
 [+] Fixed the exit bug after the players "Run Away" *BUG FIX*

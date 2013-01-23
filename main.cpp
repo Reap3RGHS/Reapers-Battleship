@@ -18,7 +18,7 @@ int input1 = 0;
 int hp = 150;
 int maxhp = 150;
 int atk = 5;
-int def = 15;
+int def = 1;
 int exp = 0;
 int atkboost;
 int enemy1hp = 200;
@@ -46,7 +46,7 @@ string enemy1 = "Trojan";
 void shop()
 {
     cout << "Welcome to my Shop!" << endl;
-    cout << "Select the weapon that you like: " << endl << endl;
+    cout << "Select the weapon that you want to buy: " << endl << endl;
     
     cout << "[1] Spartan Dagger < 30 coins >" << endl;
     cout << "[2] Cutter < 40 coins >" << endl;
@@ -78,7 +78,7 @@ void shop()
         weaponlevel = 1;
         weaponlevelreq = 10;
         
-        cout << "\033[01;32mCongratulations! You bought \"Sword\"!!! " << endl << endl;
+        cout << "\033[01;32mCongratulations! You bought \"Cutter\"!!! " << endl << endl;
     }
     mainScreen();
 }
@@ -91,7 +91,7 @@ char buffer[100];
 fscanf(file, "%s", buffer);
 pclose(file);
 
-mainScreen();
+return;
 }
 
 void statSheet()
@@ -240,7 +240,7 @@ void enemyOne()
         enemy1hp -= atk + atkboost;
         cout << enemy1 << "\033[01;32m: " << enemy1hp << " / " << enemy1maxhp << endl << endl;
 
-        enemy1atkboost = (rand () % 5);
+        enemy1atkboost = (rand () % 5) - def;
         cout << "\033[01;32m> " << enemy1 << " hit you for " << enemy1atk + enemy1atkboost << " damage." << endl << endl;
         hp -= enemy1atk + enemy1atkboost;
         cout << playername << "\033[01;32m: " << hp << " / " << maxhp << endl << endl;
@@ -276,7 +276,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v3.1.0" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v3.1.1" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
