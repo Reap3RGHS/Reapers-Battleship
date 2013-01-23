@@ -3,6 +3,13 @@ Site :
 [!] http://reap3rghs.github.com/Reapers-Battleship/
 
 
+Version 3.1.2: 
+
+[+] Fixed the bug at the weapon upgrade system. (For every upgrade level it takes only 10 coins) *BUG FIX*
+
+[+] The Trojan (enemy) is now more powerful. (With the new defence system in V3.1.1 the trojan makes 0 damage) *BUG FIX*
+
+
 Version 3.1.1: 
 
 [+] After the update the game closes.

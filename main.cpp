@@ -24,11 +24,11 @@ int atkboost;
 int enemy1hp = 200;
 int enemy1maxhp = 200;
 int enemy1exp = 20;
-int enemy1atk = 1;
+int enemy1atk = 3;
 int enemy1atkboost;
 int expreq = 20;
 int playerlevel = 1;
-int coins = 10;
+int coins = 200;
 int wincoins;
 int weaponlevel = 1;
 int weaponlevelreq = 10;
@@ -124,9 +124,9 @@ void upgradeweap()
             
     }
     else if (weaponupgrade == "yes"){
-        coins -= 10;
         atk += 5;
         weaponlevel ++;
+        coins -= weaponlevelreq;
         weaponlevelreq += 10;
         cout << "\033[01;32mCongratulations! Your weapon is now level " << weaponlevel << endl << endl;
         
@@ -276,7 +276,7 @@ int main()
 {
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v3.1.1" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v3.1.2" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
