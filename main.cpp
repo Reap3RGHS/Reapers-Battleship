@@ -28,7 +28,7 @@ int enemy1atk = 3;
 int enemy1atkboost;
 int expreq = 20;
 int playerlevel = 1;
-int coins = 200;
+int coins = 10;
 int wincoins;
 int weaponlevel = 1;
 int weaponlevelreq = 10;
