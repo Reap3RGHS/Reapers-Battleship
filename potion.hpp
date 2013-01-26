@@ -1,7 +1,7 @@
 /*
- *      main.cpp
+ *      potion.hpp
  *
- *      Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
+ *      Copyright 2013 Alexandros Iliopoulos
  *					   Marc Sylvestre <marc.sylvestre@manhydra.com>
  *
  *      This program is free software; you can redistribute it and/or modify
@@ -21,19 +21,21 @@
  *      MA 02110-1301, USA.
  */
 
-#include "game.hpp"
+#ifndef __POTION_HPP__
+#define __POTION_HPP__
 
-int main(void) {
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;35mWelcome to Reapers Battleship v1.5.2" << endl;
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;36mWhat's your player name: ";
+#include "item.hpp"
 
-	string playername;
-	getline(cin, playername);
+class Potion: public Item {
+private:
+	int power;
+public:
+	Potion() { name = "A Potion Item"; type = "Unknown Potion Item"; level = 0; cost = 0; power = 0; }
+	Potion(string n, string t, int l, int c, int p): power(p) {
+		Item(n, t, l, c);
+	}
+	int  Power() const { return power; }
+	void Power(int p) { power = p; }
+};
 
-	Game::init(playername);
-	Game::mainGame();
-
-	return 0;
-}
+#endif //__POTION_HPP__

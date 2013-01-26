@@ -1,5 +1,5 @@
 /*
- *      main.cpp
+ *      gear.hpp
  *
  *      Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
  *					   Marc Sylvestre <marc.sylvestre@manhydra.com>
@@ -21,19 +21,21 @@
  *      MA 02110-1301, USA.
  */
 
-#include "game.hpp"
+#ifndef __GEAR_HPP__
+#define __GEAR_HPP__
 
-int main(void) {
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;35mWelcome to Reapers Battleship v1.5.2" << endl;
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;36mWhat's your player name: ";
+#include "item.hpp"
 
-	string playername;
-	getline(cin, playername);
+class BattleGear: public Item {
+private:
+	int strength;
+public:
+	BattleGear() { name = "A Battle Item"; type = "Unknown Battle Item"; level = 0; cost = 0; strength = 0; }
+	BattleGear(string n, string t, int l, int c, int s): strength(s) {
+		name = n; type = t; level = l; cost = c;
+	}
+	int  Strength() const { return strength; }
+	void Strength(int s) { strength = s; }
+};
 
-	Game::init(playername);
-	Game::mainGame();
-
-	return 0;
-}
+#endif //__GEAR_HPP__

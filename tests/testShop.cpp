@@ -1,8 +1,7 @@
 /*
- *      main.cpp
+ *      testShop.cpp
  *
- *      Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
- *					   Marc Sylvestre <marc.sylvestre@manhydra.com>
+ *      Copyright 2013 Marc Sylvestre <marc.sylvestre@manhydra.com>
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -21,19 +20,17 @@
  *      MA 02110-1301, USA.
  */
 
-#include "game.hpp"
 
-int main(void) {
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;35mWelcome to Reapers Battleship v1.5.2" << endl;
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;36mWhat's your player name: ";
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+using namespace std;
 
-	string playername;
-	getline(cin, playername);
+#include "../shop.hpp"
 
-	Game::init(playername);
-	Game::mainGame();
-
-	return 0;
+int main(int argc, char **argv) {
+	Shop testStop;
+	testStop.addPotion(Potion("Healing", "Heal", 1, 5, 5));
+	exit(EXIT_SUCCESS);
 }
+

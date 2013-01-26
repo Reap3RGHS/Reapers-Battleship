@@ -1,7 +1,7 @@
 /*
- *      main.cpp
+ *      shop.hpp
  *
- *      Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
+ *      Copyright 2013 Alexandros Iliopoulos
  *					   Marc Sylvestre <marc.sylvestre@manhydra.com>
  *
  *      This program is free software; you can redistribute it and/or modify
@@ -21,19 +21,33 @@
  *      MA 02110-1301, USA.
  */
 
-#include "game.hpp"
 
-int main(void) {
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;35mWelcome to Reapers Battleship v1.5.2" << endl;
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;36mWhat's your player name: ";
+#ifndef __SHOP_HPP__
+#define __SHOP_HPP__
 
-	string playername;
-	getline(cin, playername);
+#include "item.hpp"
+#include "gear.hpp"
+#include "potion.hpp"
+#include "inventory.hpp"
+#include "character.hpp"
 
-	Game::init(playername);
-	Game::mainGame();
+class Shop {
+private:
+	Inventory merchandise;
+public:
+	Shop() {}
 
-	return 0;
-}
+	void addWeapon(BattleGear w) { merchandise.addWeapon(w); }
+	void removeWeapon(int index) { merchandise.removeWeapon(index); }
+	void addArmor(BattleGear w) { merchandise.addArmor(w); }
+	void removeArmor(int index) { merchandise.removeArmor(index); }
+	void addPotion(Potion p) { merchandise.addPotion(p); }
+	void removePotion(int index) { merchandise.removePotion(index); }
+	void addMiscItem(Item i) { merchandise.addMiscItem(i); }
+	void removeMiscItem(int index) { merchandise.removeMiscItem(index); }
+
+	void buyWeapon(Character c) {}
+	void sellWeapon(Character c) {}
+};
+
+#endif // __SHOP_HPP__

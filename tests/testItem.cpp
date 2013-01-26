@@ -1,8 +1,7 @@
 /*
- *      main.cpp
+ *      testItem.cpp
  *
- *      Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
- *					   Marc Sylvestre <marc.sylvestre@manhydra.com>
+ *      Copyright 2013 Marc Sylvestre <marc.sylvestre@manhydra.com>
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -21,19 +20,24 @@
  *      MA 02110-1301, USA.
  */
 
-#include "game.hpp"
 
-int main(void) {
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;35mWelcome to Reapers Battleship v1.5.2" << endl;
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;36mWhat's your player name: ";
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+using namespace std;
 
-	string playername;
-	getline(cin, playername);
+#include "../item.hpp"
 
-	Game::init(playername);
-	Game::mainGame();
+int main(int argc, char **argv) {
+	vector<Item> vItem;
+	vItem.push_back(Item("stick", "wood", 1, 1));
+	vItem.push_back(Item("stick", "wood", 1, 1));
+	vItem.push_back(Item("bat", "wood", 1, 2));
+	cout << "Test Item[0]: " << vItem[0].Name() << endl;
 
-	return 0;
+	cout << "Is vItem[0] = vItem[0]? " << ((vItem[0] == vItem[0]) ? "Yes" : "No") << endl;
+	cout << "Is vItem[0] = vItem[1]? " << ((vItem[0] == vItem[1]) ? "Yes" : "No") << endl;
+	cout << "Is vItem[0] = vItem[2]? " << ((vItem[0] == vItem[2]) ? "Yes" : "No") << endl;
+	exit(EXIT_SUCCESS);
 }
+

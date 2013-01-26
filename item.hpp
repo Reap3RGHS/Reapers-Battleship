@@ -1,7 +1,7 @@
 /*
- *      main.cpp
+ *      item.hpp
  *
- *      Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
+ *      Copyright 2013 Alexandros Iliopoulos
  *					   Marc Sylvestre <marc.sylvestre@manhydra.com>
  *
  *      This program is free software; you can redistribute it and/or modify
@@ -21,19 +21,31 @@
  *      MA 02110-1301, USA.
  */
 
-#include "game.hpp"
+#ifndef __ITEM_HPP__
+#define __ITEM_HPP__
 
-int main(void) {
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;35mWelcome to Reapers Battleship v1.5.2" << endl;
-	cout << "\033[01;35m=====================================" << endl;
-	cout << "\033[01;36mWhat's your player name: ";
+class Item {
+protected:
+	string name;
+	string type;
+	int level;
+	int cost;
+public:
+	Item() { name = "An Item"; type = "Unknown Item"; level = 0; cost = 0; }
+	Item(string n, string t, int l, int c): name(n), type(t), level(l), cost(c) {}
+	bool operator ==(const Item &i) { return this == &i; }
 
-	string playername;
-	getline(cin, playername);
+	string Name() const { return name; }
+	void Name(string n) { name = n; }
 
-	Game::init(playername);
-	Game::mainGame();
+	string Type() const { return type; }
+	void Type(string n) { type = n; }
 
-	return 0;
-}
+	int  Level() const { return level; }
+	void Level(int l) { level = l; }
+
+	int  Cost() const { return cost; }
+	void Cost(int ct) { cost = ct; }
+};
+
+#endif //__ITEM_HPP__
