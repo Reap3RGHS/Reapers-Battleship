@@ -32,7 +32,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = reapers$(EXEEXT)
+bin_PROGRAMS = reapers-battleship$(EXEEXT)
 subdir = .
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in $(srcdir)/config.h.in \
@@ -50,10 +50,11 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_reapers_OBJECTS = inventory.$(OBJEXT) character.$(OBJEXT) \
-	game.$(OBJEXT) main.$(OBJEXT)
-reapers_OBJECTS = $(am_reapers_OBJECTS)
-reapers_LDADD = $(LDADD)
+am_reapers_battleship_OBJECTS = inventory.$(OBJEXT) \
+	character.$(OBJEXT) shop.$(OBJEXT) game.$(OBJEXT) \
+	main.$(OBJEXT)
+reapers_battleship_OBJECTS = $(am_reapers_battleship_OBJECTS)
+reapers_battleship_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -63,8 +64,8 @@ CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 CXXLD = $(CXX)
 CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
 	-o $@
-SOURCES = $(reapers_SOURCES)
-DIST_SOURCES = $(reapers_SOURCES)
+SOURCES = $(reapers_battleship_SOURCES)
+DIST_SOURCES = $(reapers_battleship_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -169,7 +170,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CFLAGS = -Wall
-reapers_SOURCES = inventory.cpp character.cpp game.cpp main.cpp
+reapers_battleship_SOURCES = inventory.cpp character.cpp shop.cpp game.cpp main.cpp
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -263,9 +264,9 @@ uninstall-binPROGRAMS:
 
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
-reapers$(EXEEXT): $(reapers_OBJECTS) $(reapers_DEPENDENCIES) 
-	@rm -f reapers$(EXEEXT)
-	$(CXXLINK) $(reapers_OBJECTS) $(reapers_LDADD) $(LIBS)
+reapers-battleship$(EXEEXT): $(reapers_battleship_OBJECTS) $(reapers_battleship_DEPENDENCIES) 
+	@rm -f reapers-battleship$(EXEEXT)
+	$(CXXLINK) $(reapers_battleship_OBJECTS) $(reapers_battleship_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -277,6 +278,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/game.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/inventory.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/shop.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
