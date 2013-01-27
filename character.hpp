@@ -44,6 +44,8 @@ private:
 	string type;
 	int strength;
 	int agility;
+	float attackrate;
+	float evaderate;
 	int hitpoints;
 	int maxhitpoints;
 	int experiencepoints;
@@ -74,9 +76,14 @@ public:
 	void increaseAgility() { agility++; }
 	void increaseAgility(int ag) { agility += ag; }
 
+	float attackRate() const { return attackrate; }
+	void  attackRate(float r) { attackrate = r; }
+
+	float evadeRate() const { return evaderate; }
+	void  evadeRate(float r) { evaderate = r; }
+
 	int  hitPoints() const { return hitpoints; }
 	void hitPoints(int points) { if (points > maxhitpoints) hitpoints = maxhitpoints; else hitpoints = points; }
-
 	void increaseHitPoints() { if (++hitpoints > maxhitpoints) hitpoints--; }
 	void increaseHitPoints(int points) { if ( (hitpoints + points) > maxhitpoints) hitpoints = maxhitpoints; else hitpoints += points; }
 	void decreaseHitPoints() { if (--hitpoints < 0) hitpoints++; }
@@ -84,12 +91,11 @@ public:
 
 	int  maxHitPoints() const { return maxhitpoints; }
 	void maxHitPoints(int points) { maxhitpoints = points; }
-
 	void increaseMaxHitPoints() { maxhitpoints++; }
 	void increaseMaxHitPoints(int points) { maxhitpoints += points; }
 
 	int  attackPoints() const { return strength + yieldingWeapon.Strength(); }
-	void attackEnemy(Character *e) { e->decreaseHitPoints(attackPoints()); }
+	void attackEnemy(Character &e) { e.decreaseHitPoints(attackPoints()); }
 	int  defensePoints() const { return agility + yieldingArmor.Strength(); }
 
 	int  experiencePoints() const { return experiencepoints; }
@@ -98,7 +104,6 @@ public:
 
 	int  expRequirements() const { return expReqs; }
 	void expRequirements(int points) { expReqs = points; }
-
 	void increaseExpRequirements() { expReqs++; }
 	void increaseExpRequirements(int points) { expReqs += points; }
 
@@ -110,10 +115,8 @@ public:
 
 	int  Coins() const { return coins; }
 	void Coins(int c) { coins = c; }
-
 	void increaseCoins() { coins++; }
 	void increaseCoins(int c) { coins += c; }
-
 	void decreaseCoins() { coins--; }
 	void decreaseCoins(int c) { coins -= c; }
 
@@ -133,9 +136,10 @@ public:
 	void increaseWeaponCost(int ct) { yieldingWeapon.Cost(yieldingWeapon.Cost() + ct); }
 
 	void addWeaponToStock(BattleGear bg, bool equip) { stock.addWeapon(bg); if (equip) yieldingWeapon = bg; }
-	void removeWeaponToStock(int index) { if (stock.getWeapon(index) == yieldingWeapon) yieldingWeapon = BattleGear(); stock.removeWeapon(index); }
-	void buyWeapon(BattleGear bg);
-	BattleGear sellWeapon(int index);
+	void removeWeaponFromStock(int index) { if (stock.getWeapon(index) == yieldingWeapon) yieldingWeapon = BattleGear(); stock.removeWeapon(index); }
+
+	BattleGear getWeapon(int index) const { return stock.getWeapon(index); }
+	vector<BattleGear> getWeaponsList() const { return stock.getWeaponsList(); }
 
 	string armorName() const { return yieldingArmor.Name(); }
 	void armorName(string n) { yieldingArmor.Name(n); }
@@ -153,6 +157,7 @@ public:
 	void increaseArmorCost(int ct) { yieldingArmor.Cost(yieldingArmor.Cost() + ct); }
 
 	void addArmorToStock(BattleGear bg, bool equip) { stock.addArmor(bg); if (equip) yieldingArmor = bg; }
+	void removeArmorFromStock(int index) { if (stock.getArmor(index) == yieldingArmor) yieldingArmor = BattleGear(); stock.removeArmor(index); }
 
 	string potionName() const { return yieldingPotion.Name(); }
 	void potionName(string n) { yieldingPotion.Name(n); }
@@ -164,6 +169,10 @@ public:
 	void increasePotionCost(int ct) { yieldingPotion.Cost(yieldingPotion.Cost() + ct); }
 
 	void addPotionToStock(Potion p, bool equip) { stock.addPotion(p); if (equip) yieldingPotion = p; }
+	void removePotionFromStock(int index) { if (stock.getPotion(index) == yieldingPotion) yieldingPotion = Potion(); stock.removePotion(index); }
+
+	Potion getPotion(int index) const { return stock.getPotion(index); }
+	vector<Potion> getPotionsList() const { return stock.getPotionsList(); }
 
 	string miscItemName() const { return yieldingMiscItem.Name(); }
 	void miscItemName(string n) { yieldingMiscItem.Name(n); }
@@ -175,6 +184,7 @@ public:
 	void increaseMiscItemCost(int ct) { yieldingMiscItem.Cost(yieldingMiscItem.Cost() + ct); }
 
 	void addMiscItemToStock(Item i, bool equip) { stock.addMiscItem(i); if (equip) yieldingMiscItem = i; }
+	void removeMiscItemFromStock(int index) { if (stock.getMiscItem(index) == yieldingMiscItem) yieldingMiscItem = Item(); stock.removeMiscItem(index); }
 
 	void Stats();
 };

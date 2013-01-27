@@ -1,7 +1,7 @@
 /*
  *      inventory.cpp
  *
- *      Copyright 2013 Alexandros Iliopoulos
+ *      Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
  *					   Marc Sylvestre <marc.sylvestre@manhydra.com>
  *
  *      This program is free software; you can redistribute it and/or modify

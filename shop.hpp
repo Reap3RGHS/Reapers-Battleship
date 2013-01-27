@@ -34,8 +34,9 @@
 class Shop {
 private:
 	Inventory merchandise;
+	float sellingrate;
 public:
-	Shop() {}
+	Shop() { sellingrate = 0.75; }
 
 	void addWeapon(BattleGear w) { merchandise.addWeapon(w); }
 	void removeWeapon(int index) { merchandise.removeWeapon(index); }
@@ -46,8 +47,19 @@ public:
 	void addMiscItem(Item i) { merchandise.addMiscItem(i); }
 	void removeMiscItem(int index) { merchandise.removeMiscItem(index); }
 
-	void buyWeapon(Character c) {}
-	void sellWeapon(Character c) {}
+	void buyWeapon(Character &Player, int index);
+	void sellWeapon(Character &Player, int index);
+
+	void sellArmor(Character &Player, int index);
+
+	void sellPotion(Character &Player, int index);
+
+	void sellMiscItem(Character &Player, int index);
+
+	void Shopping(Character &Player);
+
+	float Rate() const { return sellingrate; }
+	void  Rate(float r) { sellingrate = r; }
 };
 
 #endif // __SHOP_HPP__

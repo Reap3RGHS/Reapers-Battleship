@@ -36,8 +36,8 @@ using namespace std;
 #include "gear.hpp"
 #include "potion.hpp"
 #include "inventory.hpp"
-#include "shop.hpp"
 #include "character.hpp"
+#include "shop.hpp"
 
 class Game {
 private:
@@ -67,9 +67,6 @@ public:
 	static void mainGame();
 	static void enterBattle();
 	static void upgradeweap();
-	static void potionshop();
-	static void update();
-	static void shop();
 };
 
 #endif //__GAME_HPP__

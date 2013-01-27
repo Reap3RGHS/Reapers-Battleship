@@ -87,107 +87,6 @@ void Game::loadGameEnemies() {
 	Enemies[0].addWeaponToStock(Weapons[1], true);
 }
 
-void Game::shop()
-{
-/*
-    cout << "Welcome to my Shop!" << endl;
-    cout << "Select the weapon that you like: " << endl << endl;
-
-    cout << "[1] Spartan Dagger < 30 coins >" << endl;
-    cout << "[2] Cutter < 40 coins >" << endl;
-    cout << ">";
-    cin >> weaponselection;
-
-    if ( coins < daggerprice && coins < swordprice)
-    {
-        cout << "\033[01;31mYou have no coins available to buy this item!" << endl << endl;
-
-    }
-
-    else if (weaponselection == 1)
-    {
-        weapon = "Spartan Dagger";
-        coins -= 30;
-        atk += 5;
-        weaponlevel = 1;
-        weaponlevelreq = 10;
-
-        cout << "\033[01;32mCongratulations! You bought \"Dagger\"!!! " << endl << endl;
-    }
-
-    else if (weaponselection == 2)
-    {
-        weapon = "Cutter";
-        coins -= 40;
-        atk += 10;
-        weaponlevel = 1;
-        weaponlevelreq = 10;
-
-        cout << "\033[01;32mCongratulations! You bought \"Sword\"!!! " << endl << endl;
-    }
-    mainScreen();
-*/
-}
-
-void Game::upgradeweap()
-{
-/*
-    if (weaponlevel == 9)
-    {
-        cout << "\033[01;32mYou have reached level " << weaponlevel << ", your weapon is now master." << endl << endl;
-        mainScreen();
-    }
-
-
-    cout << "\033[01;33mAre you sure you want to spent " << weaponlevelreq << " coins for weapon upgrade? [yes/no] " << endl;
-    cout << "\033[01;33m>";
-    cin >> weaponupgrade;
-    if (coins < weaponlevelreq){
-            cout << "\033[01;31mYou have no coins available for this upgrade!" << endl << endl;
-
-    }
-    else if (weaponupgrade == "yes"){
-        coins -= 10;
-        atk += 5;
-        weaponlevel ++;
-        weaponlevelreq += 10;
-        cout << "\033[01;32mCongratulations! Your weapon is now level " << weaponlevel << endl << endl;
-
-    }
-    mainScreen();
-*/
-}
-
-void Game::potionshop()
-{
-/*
-    cout << "\033[01;33mAre you sure you want to buy HP Potions for 5 coins? [yes/no]" << endl;
-    cout << "\033[01;33m>";
-    cin >> potion;
-    if (hp == maxhp)
-    {
-        cout << "\033[01;31mYour HP is full! You can't increase it more." << endl << endl;
-    }
-    else if (coins < potioncost)
-    {
-        cout << "\033[01;31mYou have no coins available for this upgrade!" << endl << endl;
-
-    }
-    else if (potion == "yes")
-    {
-        coins -= 5;
-        hp += 5;
-    if (hp >= maxhp)
-        {
-            hp = 150;
-        }
-        cout << "\033[01;32mCongratulations! Your HP now is " << hp << "." << endl << endl;
-
-    }
-    mainScreen();
-*/
-}
-
 void Game::mainGame() {
 	int select;
 	while (true) {
@@ -203,10 +102,8 @@ void Game::mainGame() {
 	    cout << "\033[01;35m[1] Battle" << endl;
 	    cout << "\033[01;35m[2] Character" << endl;
 	    cout << "\033[01;35m[3] Upgrade Weapon" << endl;
-	    cout << "\033[01;35m[4] Buy HP Potion" << endl;
-	    cout << "\033[01;35m[5] Weapon Shop" << endl;
-	    cout << "\033[01;35m[6] Update" << endl;
-	    cout << "\033[01;35m[7] Quit" << endl;
+	    cout << "\033[01;35m[4] Buy Weapons and Potions" << endl;
+	    cout << "\033[01;35m[5] Quit" << endl;
 	    cout << "\033[01;35m>";
 	    cin >> select;
 		switch(select){
@@ -220,16 +117,13 @@ void Game::mainGame() {
 				upgradeweap();
 				break;
 			case 4:
-				potionshop();
+				rbShop.Shopping(Player);
 				break;
 			case 5:
-				shop();
-				break;
-			case 7:
 				cout << "\033[01;36mThanks for playing!\033[00;00m" << endl;
 				return;
 			default:
-				cout << "\033[01;31mInvalid input, please retry." << endl << endl;
+				cout << "\033[01;31mInvalid selection, please retry." << endl << endl;
 				break;
 		}
 	}
@@ -282,4 +176,33 @@ void Game::enterBattle() {
 	Player.increaseExperiencePoints(Enemies[0].experiencePoints());
 	Player.increaseCoins(rand () % 28);
 	Enemies[0].hitPoints(200);
+}
+
+void Game::upgradeweap()
+{
+/*
+    if (weaponlevel == 9)
+    {
+        cout << "\033[01;32mYou have reached level " << weaponlevel << ", your weapon is now master." << endl << endl;
+        mainScreen();
+    }
+
+
+    cout << "\033[01;33mAre you sure you want to spent " << weaponlevelreq << " coins for weapon upgrade? [yes/no] " << endl;
+    cout << "\033[01;33m>";
+    cin >> weaponupgrade;
+    if (coins < weaponlevelreq){
+            cout << "\033[01;31mYou have no coins available for this upgrade!" << endl << endl;
+
+    }
+    else if (weaponupgrade == "yes"){
+        coins -= 10;
+        atk += 5;
+        weaponlevel ++;
+        weaponlevelreq += 10;
+        cout << "\033[01;32mCongratulations! Your weapon is now level " << weaponlevel << endl << endl;
+
+    }
+    mainScreen();
+*/
 }

@@ -39,14 +39,6 @@ Character::Character() {
 	yieldingWeapon.Type("Bare Hands");
 }
 
-BattleGear Character::sellWeapon(int index) {
-	BattleGear bg = stock.getWeapon(index);
-	if (bg == yieldingWeapon)
-		yieldingWeapon = BattleGear();
-	stock.removeWeapon(index);
-	return bg;
-}
-
 void Character::Stats() {
     cout << "\033[22;34mName: " << "\033[01;37m" << name << endl;
     cout << "\033[22;34mType: " << "\033[01;37m" << type << endl;

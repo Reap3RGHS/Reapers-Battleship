@@ -1,3 +1,13 @@
 2013-01-21  Marc Sylvestre  <marc.sylvestre@manhydra.com>
 
- * More Classes Added; Some Program Restructuring
+	* More Classes Added, Program Restructuring; Created classes
+	based on identifiable objects within the game, noted the main
+	player and enemy characters, item shop, weapons and armor,
+	potions, miscellaneous items, inventory containing items
+	possessed by characters and shops.
+
+	A game class was also created to control the global procedures
+	and variables.
+
+	There are a few procedures left to be implemented, mostly within
+	the Inventory and Game classes.

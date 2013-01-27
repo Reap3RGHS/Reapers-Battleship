@@ -32,7 +32,7 @@ private:
 public:
 	Potion() { name = "A Potion Item"; type = "Unknown Potion Item"; level = 0; cost = 0; power = 0; }
 	Potion(string n, string t, int l, int c, int p): power(p) {
-		Item(n, t, l, c);
+		name = n; type = t; level = l; cost = c;
 	}
 	int  Power() const { return power; }
 	void Power(int p) { power = p; }

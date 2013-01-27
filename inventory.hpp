@@ -1,7 +1,7 @@
 /*
  *      inventory.hpp
  *
- *      Copyright 2013 Alexandros Iliopoulos
+ *      Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
  *					   Marc Sylvestre <marc.sylvestre@manhydra.com>
  *
  *      This program is free software; you can redistribute it and/or modify
@@ -45,7 +45,10 @@ public:
 	int numWeapons() const { return weapons.size(); }
 	void addWeapon(BattleGear w) { weapons.push_back(w); }
 	void removeWeapon(int index) { weapons.erase(weapons.begin() + index); }
+
 	BattleGear getWeapon(int index) const { return weapons.at(index); }
+	vector<BattleGear> getWeaponsList() const { return weapons; }
+
 	void WeaponInfo();
 	void WeaponInfo(int index);
 	void WeaponInfo(const string name);
@@ -53,7 +56,10 @@ public:
 	int numAmor() const { return armor.size(); }
 	void addArmor(BattleGear ar) { armor.push_back(ar); }
 	void removeArmor(int index) { armor.erase(armor.begin() + index); }
+
 	BattleGear getArmor(int index) const { return armor.at(index); }
+	vector<BattleGear> getArmorList() const { return armor; }
+
 	void ArmorInfo();
 	void ArmorInfo(int index);
 	void ArmorInfo(const string name);
@@ -61,13 +67,16 @@ public:
 	int numPotions() const { return potions.size(); }
 	void addPotion(Potion p) { potions.push_back(p); };
 	void removePotion(int index) { potions.erase(potions.begin() + index); }
+
 	Potion getPotion(int index) const { return potions.at(index); }
+	vector<Potion> getPotionsList() const { return potions; }
+
 	void PotionInfo();
 	void PotionInfo(int index);
 	void PotionInfo(const string name);
 
 	int numMiscItems() const { return miscItems.size(); }
-	void addMiscItem(Item i);
+	void addMiscItem(Item i) { miscItems.push_back(i); };
 	void removeMiscItem(int index) { potions.erase(potions.begin() + index); }
 	Item getMiscItem(int index) const { return miscItems.at(index); }
 	void MiscItemInfo();

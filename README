@@ -1,4 +1,9 @@
-A simply game created by Reap3RGHS in C++.
+=======================================================================
+Reaper's Battleship
+Copyright 2013 Alexandros Iliopoulos <reaperghs@gmail.com>
+=======================================================================
+
+A simply game created by Alexandros Iliopoulos (Reap3RGHS).
 
 This game uses only three libraries and it's only for Linux.
 
@@ -6,7 +11,7 @@ Soon will be released for Windows.
 
 This is the Beta Version and will be updated!
 
-Version 1.2.9 : 
+Version 1.2.9 :
 
 Testing Update System From The Game!
 
@@ -16,7 +21,8 @@ Fully optimazed code. (Thanks to Rexes)
 
 New update system. (Thanks Drarqua-Storm for the "git pull" code)
 
-Added a new script that auto-compiles the program and the user can run it with two clicks. (Thanks to Google)
+Added a new script that auto-compiles the program and the user can
+run it with two clicks. (Thanks to Google)
 
 Colored Menu. (Thanks to Google)
 

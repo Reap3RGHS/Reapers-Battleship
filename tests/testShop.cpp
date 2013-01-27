@@ -26,11 +26,24 @@
 #include <vector>
 using namespace std;
 
+#include "../character.cpp"
 #include "../shop.hpp"
+#include "../shop.cpp"
 
 int main(int argc, char **argv) {
-	Shop testStop;
-	testStop.addPotion(Potion("Healing", "Heal", 1, 5, 5));
+	Shop testShop;
+	Character Player;
+	Player.Coins(50);
+	Player.addWeaponToStock(BattleGear("Anchemacha", "Spear", 1, 25, 4), false);
+	Player.addPotionToStock(Potion("Healing", "Heal", 1, 5, 5), false);
+
+	testShop.addWeapon(BattleGear("Anchemacha", "Spear", 1, 25, 4));
+	testShop.addWeapon(BattleGear("Spartan Dagger", "Dagger", 1, 30, 5));
+	testShop.addWeapon(BattleGear("Cutter", "Dagger", 1, 40, 6));
+	testShop.addArmor(BattleGear("Greek Bronze Shield", "Shield", 1, 25, 5));
+	testShop.addPotion(Potion("Healing", "Heal", 1, 5, 5));
+
+	testShop.Shopping(Player);
+
 	exit(EXIT_SUCCESS);
 }
-
