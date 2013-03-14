@@ -98,7 +98,7 @@ void shop()
 
 void update()
 {
-    FILE* file = popen("git pull", "r");
+    FILE* file = popen("sudo git pull", "r");
 // use fscanf to read:
 char buffer[100];
 fscanf(file, "%s", buffer);
@@ -224,7 +224,7 @@ if (exp == expreq)
 		default:
 			cout << "\033[01;31mInvalid input, please retry." << endl << endl;
 			mainScreen();
-			break;
+                        break;
 	}
 }
 
@@ -290,7 +290,7 @@ void enemyOne()
 
 int main()
 {
-
+    if (getuid() == 0) {
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;35mWelcome to Reapers Battleship v3.1.3" << endl;
 cout << "\033[01;35m=====================================" << endl;
@@ -298,6 +298,9 @@ cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
 
 mainScreen();
-
+}
+    else {
+        cout << "You need root privileges to run this program." << endl;
+    }
 return 0;
 }
