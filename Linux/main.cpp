@@ -60,7 +60,7 @@ void isroot(){
     
     else{
         cout << "You must be root to run this program!" << endl;
-        return;
+        exit(0);
     }
     
 }
