@@ -9,6 +9,7 @@
 #include<ctime>
 #include<cstdlib>
 #include<stdio.h>
+#include<unistd.h>
 
 using namespace std;
 
@@ -19,6 +20,7 @@ void upgradeweap();
 void potionshop();
 void update();
 void shop();
+void isroot();
 
 int inputmain = 0;
 int input1 = 0;
@@ -49,6 +51,18 @@ string playername;
 string weapon = "Anchemacha";
 string armor = "Greek Bronze Shield";
 string enemy1 = "Trojan";
+
+void isroot(){
+    
+    if(getuid() == 0){
+        return;
+    }
+    
+    else{
+        cout << "You must be root to run this program!" << endl;
+    }
+    
+}
 
 void shop()
 {
@@ -294,7 +308,8 @@ void enemyOne()
 
 int main()
 {
-    if (getuid() == 0) {
+isroot();
+
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;35mWelcome to Reapers Battleship v3.1.3" << endl;
 cout << "\033[01;35m=====================================" << endl;
@@ -302,9 +317,5 @@ cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
 
 mainScreen();
-}
-    else {
-        cout << "You need root privileges to run this program." << endl;
-    }
 return 0;
 }
