@@ -1,3 +1,10 @@
+/* 
+ * File:   main.cpp
+ * Author: Reap3RGHS
+ * Reapers_Battleship
+ * Created on January
+ */
+
 #include<iostream>
 #include<ctime>
 #include<cstdlib>
@@ -284,9 +291,6 @@ void enemyOne()
             enemy1hp = 200;
             mainScreen();
 }
-
-
-
 
 int main()
 {
