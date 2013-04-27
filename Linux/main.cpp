@@ -310,9 +310,10 @@ void enemyOne()
 int main()
 {
 isroot();
+update();
 
 cout << "\033[01;35m=====================================" << endl;
-cout << "\033[01;35mWelcome to Reapers Battleship v3.1.3" << endl;
+cout << "\033[01;35mWelcome to Reapers Battleship v3.1.4" << endl;
 cout << "\033[01;35m=====================================" << endl;
 cout << "\033[01;36mPlease write here your player name: ";
 getline(cin,playername);
